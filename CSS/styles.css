@@ -1,3 +1,11 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     margin-top: 0;
     margin-bottom: 0;
@@ -20,6 +28,7 @@ code {
     background-color: #f7f7f7;
     padding: 18px;
     margin: 10px;
+    word-break: break-all;
 }
 
 header {
@@ -37,15 +46,6 @@ li {
     margin: 10px 0;
 }
 
-#nav-header-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 299px;
-    padding-top: 4px;
-    padding-bottom: 6px;
-} 
-
 #nav-header {
     text-align: center;
 }
@@ -53,17 +53,21 @@ li {
 #navbar {
     position: fixed;
     left: 0;
-    top: 61px;
+    top: 0;
     bottom: 0;
     width: 299px;
     display: grid;
-    grid-template-rows: repeat(15, 40px);
+    grid-template-rows: 60px repeat(14, 40px);
     height: 100%;
 }
 
 .nav-link-container {
     border-top: 1px solid black;
     width: 100%;
+}
+
+#reference {
+    border-bottom: 1px solid black;
 }
 
 .nav-link {
@@ -77,4 +81,48 @@ li {
 
 .spacer {
     height: 10px;
+}
+
+@media (max-width: 816px) {
+
+    .main-section {
+        max-width: 100%;
+    }
+
+    #main-doc {
+        border-left: unset;
+    }
+    #main-container {
+        grid-template-columns: 1fr;
+    }
+
+    #navbar {
+        position: relative;
+        right: 0;
+        bottom: unset;
+        width: 100%;
+    }
+    
+    .spacer {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    #main-doc {
+        padding: 5px;
+    }
+
+    article {
+        padding: 5px 8px;
+    }
+
+    code {
+        margin: 10px 0px;
+        padding: 8px 10px;
+    }
+
+    #navbar {
+        margin-bottom: 10px;
+    }
 }
